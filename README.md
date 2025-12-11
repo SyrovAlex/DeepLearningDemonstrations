@@ -3,16 +3,22 @@
 Этот репозиторий содержит интерактивные примеры распространенных проблем 
 глубокого обучения с полными объяснениями и визуализациями на PyTorch.  
 
-## 🚀 Быстрый старт
+## 🚀 Запуск примеров
 
 ```bash
+# клонируем репозиторий
 git clone https://github.com/yourname/DeepLearningDemonstrations.git
 cd DeepLearningDemonstrations
-pip install -r requirements.txt
 
-# Запустите демо-ноутбуки:
-jupyter notebook 01_vanishing_gradients.ipynb
-```
+# сборка контейнера
+docker build -t dl-demo:latest .
+
+# запуск контейнера
+docker run -p 8888:8888 -v $(pwd):/workspace dl-demo:latest
+```  
+Далее вы можете запустить демо-ноутбуки в Jupyter Notebook.
+
+
 
 ## 📁 Каталог демонстрационных ноутбуков
 
@@ -28,3 +34,17 @@ jupyter notebook 01_vanishing_gradients.ipynb
 | `08_optimizers_comparison.ipynb` | **Оптимизаторы**: SGD vs Adam, learning rate schedules, loss landscapes | 🔄 В разработке | 🟡 Средний |
 | `09_batch_norm_effect.ipynb` | **Batch Normalization**: влияние на обучение, internal covariate shift | ✅ Завершено | 🟡 Средний |
 | `10_label_noise_robustness.ipynb` | **Зашумленные метки**: robust loss functions, curriculum learning | ⏳ Запланировано | 🔴 Продвинутый |
+
+## 📁 Использование Dockers
+
+Для запуска демонстраций в Docker используйте следующую команду:
+
+```bash
+# сборка контейнера
+docker build -t dl-demo:latest .
+
+# запуск контейнера
+docker run -p 8888:8888 -v $(pwd):/workspace dl-demo:latest
+```
+
+## 
